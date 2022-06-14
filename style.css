@@ -1,0 +1,71 @@
+ @import url(https://fonts.googleapis.com/css?family=Sansita+Swashed);
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100%;
+    min-height: 100vh;
+    /* overflow: hidden;  */
+    background: url("./images/bg.png") no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap-reverse;
+}
+
+h1, h2{
+    text-align: center;
+    font-family: 'Sansita Swashed', cursive;
+    font-weight: none;
+    color: #f9b600;
+    line-height: normal;
+    margin: 0;
+}
+
+h1{
+    font-size: 4rem;
+    text-decoration: underline;
+
+}
+
+h2{
+    font-size: 2rem;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: repeat(4, 8rem);    /* four columns with 8rem size */
+    grid-template-rows: repeat(4, 8rem);
+    margin: 50px;
+    grid-gap: 2rem;
+    perspective: 800px; /*for transforming 3D you need have perspective to the parent element and it is parent element to the card*/
+}
+
+.card{
+    position: relative;
+    transform-style: preserve-3d; /*while transforming in 3D elements 'transform-style' property hsould be 'perserve-3D'*/
+    transition: all 2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 5px 16px rgba(0, 0, 0, 0.5);
+}
+
+.face, .back{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    pointer-events: none;
+}
+
+.back{
+    background: lemonchiffon;
+    backface-visibility: hidden;
+}
+
+.toggleCard{
+    transform: rotateY(180deg);
+}
